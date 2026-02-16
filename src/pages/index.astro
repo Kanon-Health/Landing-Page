@@ -139,7 +139,7 @@ const metadata = {
         } else {
           alert('Submission failed. Please try again or contact support.');
         }
-      } catch (error) {
+      } catch {
         alert('Could not connect to the server. Check your internet and try again.');
       } finally {
         submitBtn.innerText = originalBtnText;
