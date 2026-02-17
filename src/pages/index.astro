@@ -7,23 +7,22 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <section id="hero-section" class="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-[#020617] text-slate-200">
+  <section id="hero-section" class="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-[#010409] text-slate-200">
     
     <div class="absolute inset-0 z-0 pointer-events-none">
-      <div class="absolute inset-0 opacity-[0.1]" 
-           style="background-image: linear-gradient(#1e293b 1px, transparent 1px), linear-gradient(90deg, #1e293b 1px, transparent 1px); background-size: 50px 50px;">
+      <div class="absolute inset-0 opacity-[0.12]" 
+           style="background-image: linear-gradient(#1e293b 1px, transparent 1px), linear-gradient(90deg, #1e293b 1px, transparent 1px); background-size: 60px 60px;">
       </div>
       
-      <div id="mouse-glow" class="absolute w-[500px] h-[500px] bg-cyan-500/5 rounded-full blur-[100px] opacity-0 transition-opacity duration-700"></div>
-
-      <div class="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] bg-cyan-600/15 rounded-full blur-[120px] animate-mesh-1"></div>
-      <div class="absolute bottom-[-20%] right-[-10%] w-[70%] h-[70%] bg-blue-700/15 rounded-full blur-[120px] animate-mesh-2"></div>
+      <div class="absolute top-[-10%] left-[-10%] w-[80%] h-[80%] bg-cyan-500/25 rounded-full blur-[120px] animate-mesh-1"></div>
+      <div class="absolute bottom-[-10%] right-[-10%] w-[80%] h-[80%] bg-blue-600/25 rounded-full blur-[120px] animate-mesh-2"></div>
+      <div class="absolute top-1/4 left-1/4 w-[50%] h-[50%] bg-indigo-500/20 rounded-full blur-[100px] animate-mesh-3"></div>
       
       <div class="absolute inset-0 bg-radial-vignette"></div>
     </div>
 
     <main class="relative z-10 text-center px-6 max-w-4xl mx-auto">
-      <h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter mb-6 bg-gradient-to-b from-white to-slate-500 bg-clip-text text-transparent">
+      <h1 class="text-7xl md:text-9xl font-extrabold tracking-tighter mb-6 bg-gradient-to-b from-white via-white to-slate-500 bg-clip-text text-transparent drop-shadow-2xl">
         KANON
       </h1>
       
@@ -42,7 +41,7 @@ const metadata = {
         </button>
         
         <div class="px-6 py-3 border border-slate-800 rounded-full text-slate-400 text-sm flex items-center gap-3 bg-slate-900/50">
-          <span class="flex h-2 w-2 rounded-full bg-cyan-500 animate-pulse"></span>
+          <span class="flex h-2 w-2 rounded-full bg-cyan-500 animate-pulse shadow-[0_0_10px_#06b6d4]"></span>
           Now in Alpha
         </div>
       </div>
@@ -61,10 +60,10 @@ const metadata = {
         <h2 class="text-2xl font-bold mb-2 text-white">Join the Waitlist</h2>
         <p class="text-slate-400 mb-6 text-sm">Be the first to see how Kanon streamlines your workflow.</p>
         <form id="waitlist-form" class="space-y-4 text-left">
-          <input type="text" name="name" required placeholder="Full Name" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-500">
-          <input type="email" name="email" required placeholder="Email Address" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-500">
-          <input type="text" name="role" required placeholder="Role (e.g. CEO)" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-500">
-          <input type="text" name="company" required placeholder="Agency Name" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-500">
+          <input type="text" name="name" required placeholder="Full Name" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-500 transition-all">
+          <input type="email" name="email" required placeholder="Email Address" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-500 transition-all">
+          <input type="text" name="role" required placeholder="Role (e.g. CEO)" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-500 transition-all">
+          <input type="text" name="company" required placeholder="Agency Name" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-500 transition-all">
           <button type="submit" id="submit-btn" class="w-full py-4 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-xl transition-all">
             Secure Early Access
           </button>
@@ -87,24 +86,32 @@ const metadata = {
   <style is:global>
     @keyframes mesh-1 {
       0% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(5%, 5%) scale(1.05); }
+      50% { transform: translate(15%, 10%) scale(1.1); }
       100% { transform: translate(0, 0) scale(1); }
     }
     @keyframes mesh-2 {
-      0% { transform: translate(0, 0) scale(1.05); }
-      33% { transform: translate(-5%, -5%) scale(0.95); }
-      100% { transform: translate(0, 0) scale(1.05); }
+      0% { transform: translate(0, 0) scale(1.1); }
+      50% { transform: translate(-15%, -10%) scale(0.9); }
+      100% { transform: translate(0, 0) scale(1.1); }
     }
-    .animate-mesh-1 { animation: mesh-1 20s ease-in-out infinite; }
-    .animate-mesh-2 { animation: mesh-2 25s ease-in-out infinite; }
-    .bg-radial-vignette { background: radial-gradient(circle at center, transparent 0%, #020617 85%); }
+    @keyframes mesh-3 {
+      0% { transform: translate(0, 0); opacity: 0.15; }
+      50% { transform: translate(10%, -10%); opacity: 0.3; }
+      100% { transform: translate(0, 0); opacity: 0.15; }
+    }
+    .animate-mesh-1 { animation: mesh-1 18s ease-in-out infinite; }
+    .animate-mesh-2 { animation: mesh-2 22s ease-in-out infinite; }
+    .animate-mesh-3 { animation: mesh-3 15s ease-in-out infinite; }
+    
+    /* MODIFIED VIGNETTE: More transparent in the center, darkness pushed to 100% */
+    .bg-radial-vignette { 
+      background: radial-gradient(circle at center, transparent 40%, #010409 100%); 
+    }
   </style>
 
   <script is:inline src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
   <script is:inline>
-    const hero = document.getElementById('hero-section');
-    const glow = document.getElementById('mouse-glow');
     const openBtn = document.getElementById('open-modal');
     const closeBtn = document.getElementById('close-modal');
     const overlay = document.getElementById('modal-overlay');
@@ -113,15 +120,6 @@ const metadata = {
     const formContent = document.getElementById('form-content');
     const successContent = document.getElementById('success-content');
     const successClose = document.getElementById('success-close');
-
-    hero.addEventListener('mousemove', (e) => {
-      const rect = hero.getBoundingClientRect();
-      const x = e.clientX - rect.left - 250;
-      const y = e.clientY - rect.top - 250;
-      glow.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-      glow.style.opacity = '1';
-    });
-    hero.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
 
     const toggleModal = (show) => {
       if (show) {
@@ -146,7 +144,7 @@ const metadata = {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const originalText = submitBtn.innerText;
-      submitBtn.innerText = 'Sending...';
+      submitBtn.innerText = 'Syncing...';
       submitBtn.disabled = true;
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
