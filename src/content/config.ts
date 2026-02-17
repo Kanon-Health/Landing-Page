@@ -46,7 +46,7 @@ const metadataDefinition = () =>
     })
     .optional();
 
-const postCollection = defineCollection({
+/*const postCollection = defineCollection({
   loader: glob({ pattern: ['*.md', '*.mdx'], base: 'src/data/post' }),
   schema: z.object({
     publishDate: z.date().optional(),
@@ -63,8 +63,8 @@ const postCollection = defineCollection({
 
     metadata: metadataDefinition(),
   }),
-});
+});*/
 
 export const collections = {
-  post: postCollection,
+  //post: postCollection,
 };
