@@ -7,7 +7,7 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <section id="hero-section" class="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-[#010409] text-slate-200">
+  <section id="hero-section" class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#010409] text-slate-200">
     
     <div class="absolute inset-0 z-0 pointer-events-none">
       <div class="absolute inset-0 opacity-[0.12]" 
@@ -21,13 +21,13 @@ const metadata = {
       <div class="absolute inset-0 bg-radial-vignette"></div>
     </div>
 
-    <main class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+    <main class="relative z-10 text-center px-6 max-w-4xl mx-auto py-20">
       <h1 class="text-7xl md:text-9xl font-extrabold tracking-tighter mb-6 bg-gradient-to-b from-white via-white to-slate-500 bg-clip-text text-transparent drop-shadow-2xl">
         KANON
       </h1>
       
       <p class="text-xl md:text-2xl text-cyan-400 font-semibold mb-4 tracking-wide uppercase">
-        AI-Assisted Care. Audit-Proof Results.
+        AI-Assisted Care. Audit-Ready Workflows.
       </p>
 
       <p class="max-w-2xl mx-auto text-slate-400 text-lg mb-12 leading-relaxed">
@@ -47,8 +47,13 @@ const metadata = {
       </div>
     </main>
 
-    <footer class="absolute bottom-10 text-slate-600 text-xs tracking-widest uppercase z-10">
-      &copy; 2026 Kanon Health • Privacy-First Analytics Enabled
+    <footer class="relative z-10 mt-auto pb-10 px-6 text-center max-w-3xl mx-auto">
+      <p class="text-slate-600 text-[10px] tracking-widest uppercase mb-4">
+        &copy; 2026 Kanon Health • Privacy-First Analytics Enabled
+      </p>
+      <p class="text-slate-500 text-[9px] leading-relaxed opacity-40 select-none">
+        Disclaimer: Kanon is a documentation and workflow tool designed to support regulatory compliance. Use of Kanon does not guarantee audit success or immunity from regulatory findings. Agencies remain solely responsible for their clinical, administrative, and regulatory compliance.
+      </p>
     </footer>
   </section>
 
@@ -103,7 +108,6 @@ const metadata = {
     .animate-mesh-2 { animation: mesh-2 22s ease-in-out infinite; }
     .animate-mesh-3 { animation: mesh-3 15s ease-in-out infinite; }
     
-    /* MODIFIED VIGNETTE: More transparent in the center, darkness pushed to 100% */
     .bg-radial-vignette { 
       background: radial-gradient(circle at center, transparent 40%, #010409 100%); 
     }
