@@ -28,7 +28,7 @@ const metadata = {
         <span class="text-cyan-400 text-xs font-bold tracking-[0.2em] uppercase">Intelligence in Motion</span>
       </div>
 
-      <h1 class="text-7xl md:text-9xl font-extrabold tracking-tighter mb-6 bg-gradient-to-b from-white via-white to-slate-500 bg-clip-text text-transparent drop-shadow-sm">
+      <h1 class="text-7xl md:text-9xl font-extrabold tracking-tighter mb-6 bg-gradient-to-b from-white via-white to-slate-500 bg-clip-text text-transparent">
         KANON
       </h1>
       
@@ -70,7 +70,7 @@ const metadata = {
           <input type="email" name="email" required placeholder="Email Address" class="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-white focus:outline-none focus:border-cyan-500 transition-all">
           <input type="text" name="role" required placeholder="Your Role" class="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-white focus:outline-none focus:border-cyan-500 transition-all">
           <input type="text" name="company" required placeholder="Agency Name" class="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-white focus:outline-none focus:border-cyan-500 transition-all">
-          <button type="submit" id="submit-btn" class="w-full py-5 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-2xl transition-all shadow-lg shadow-cyan-500/20">
+          <button type="submit" id="submit-btn" class="w-full py-5 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-2xl transition-all">
             Secure Early Access
           </button>
         </form>
@@ -90,7 +90,6 @@ const metadata = {
   </div>
 
   <style is:global>
-    /* Mesh Animation Keyframes */
     @keyframes mesh-1 {
       0% { transform: translate(0, 0) scale(1); }
       33% { transform: translate(10%, 10%) scale(1.1); }
@@ -104,41 +103,21 @@ const metadata = {
       100% { transform: translate(0, 0) scale(1.1); }
     }
     @keyframes mesh-3 {
-      0% { transform: translate(0, 0) opacity: 0.1; }
-      50% { transform: translate(-20%, 20%) opacity: 0.2; }
-      100% { transform: translate(0, 0) opacity: 0.1; }
+      0% { transform: translate(0, 0); opacity: 0.1; }
+      50% { transform: translate(-20%, 20%); opacity: 0.2; }
+      100% { transform: translate(0, 0); opacity: 0.1; }
     }
-
     .animate-mesh-1 { animation: mesh-1 20s ease-in-out infinite; }
     .animate-mesh-2 { animation: mesh-2 25s ease-in-out infinite; }
     .animate-mesh-3 { animation: mesh-3 30s ease-in-out infinite; }
-
-    .bg-radial-vignette {
-      background: radial-gradient(circle at center, transparent 0%, #020617 80%);
-    }
+    .bg-radial-vignette { background: radial-gradient(circle at center, transparent 0%, #020617 80%); }
   </style>
 
   <script is:inline src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
   <script is:inline>
-    // --- MOUSE TRACKING LOGIC ---
     const hero = document.getElementById('hero-section');
     const glow = document.getElementById('mouse-glow');
-
-    hero.addEventListener('mousemove', (e) => {
-      const rect = hero.getBoundingClientRect();
-      const x = e.clientX - rect.left - 300; // Half the width of glow
-      const y = e.clientY - rect.top - 300; // Half the height of glow
-      
-      glow.style.transform = `translate(${x}px, ${y}px)`;
-      glow.style.opacity = '1';
-    });
-
-    hero.addEventListener('mouseleave', () => {
-      glow.style.opacity = '0';
-    });
-
-    // --- MODAL & FORM LOGIC (Your verified code) ---
     const openBtn = document.getElementById('open-modal');
     const closeBtn = document.getElementById('close-modal');
     const overlay = document.getElementById('modal-overlay');
@@ -148,6 +127,17 @@ const metadata = {
     const successContent = document.getElementById('success-content');
     const successClose = document.getElementById('success-close');
 
+    // Mouse Tracking
+    hero.addEventListener('mousemove', (e) => {
+      const rect = hero.getBoundingClientRect();
+      const x = e.clientX - rect.left - 300;
+      const y = e.clientY - rect.top - 300;
+      glow.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+      glow.style.opacity = '1';
+    });
+    hero.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
+
+    // Modal logic
     const toggleModal = (show) => {
       if (show) {
         overlay.classList.remove('hidden');
@@ -155,7 +145,11 @@ const metadata = {
       } else {
         overlay.classList.add('hidden');
         overlay.classList.remove('flex');
-        setTimeout(() => { formContent.classList.remove('hidden'); successContent.classList.add('hidden'); form.reset(); }, 300);
+        setTimeout(() => { 
+          formContent.classList.remove('hidden'); 
+          successContent.classList.add('hidden'); 
+          form.reset(); 
+        }, 300);
       }
     };
 
@@ -181,13 +175,13 @@ const metadata = {
           successContent.classList.remove('hidden');
           confetti({ particleCount: 200, spread: 80, origin: { y: 0.6 }, colors: ['#06b6d4', '#ffffff'] });
         } else {
-          alert('Error.');
-          submitBtn.innerText = 'Try Again';
+          alert('Submission failed.');
+          submitBtn.innerText = 'Secure Early Access';
           submitBtn.disabled = false;
         }
       } catch {
         alert('Error.');
-        submitBtn.innerText = 'Try Again';
+        submitBtn.innerText = 'Secure Early Access';
         submitBtn.disabled = false;
       }
     });
