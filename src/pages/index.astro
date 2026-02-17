@@ -10,81 +10,76 @@ const metadata = {
   <section id="hero-section" class="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-[#020617] text-slate-200">
     
     <div class="absolute inset-0 z-0 pointer-events-none">
-      <div class="absolute inset-0 opacity-[0.15]" 
+      <div class="absolute inset-0 opacity-[0.1]" 
            style="background-image: linear-gradient(#1e293b 1px, transparent 1px), linear-gradient(90deg, #1e293b 1px, transparent 1px); background-size: 50px 50px;">
       </div>
       
-      <div id="mouse-glow" class="absolute w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[120px] opacity-0 transition-opacity duration-500"></div>
+      <div id="mouse-glow" class="absolute w-[500px] h-[500px] bg-cyan-500/5 rounded-full blur-[100px] opacity-0 transition-opacity duration-700"></div>
 
-      <div class="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] bg-cyan-600/20 rounded-full blur-[120px] animate-mesh-1"></div>
-      <div class="absolute bottom-[-20%] right-[-10%] w-[70%] h-[70%] bg-blue-700/20 rounded-full blur-[120px] animate-mesh-2"></div>
-      <div class="absolute top-[20%] right-[10%] w-[40%] h-[40%] bg-indigo-600/15 rounded-full blur-[120px] animate-mesh-3"></div>
+      <div class="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] bg-cyan-600/15 rounded-full blur-[120px] animate-mesh-1"></div>
+      <div class="absolute bottom-[-20%] right-[-10%] w-[70%] h-[70%] bg-blue-700/15 rounded-full blur-[120px] animate-mesh-2"></div>
       
       <div class="absolute inset-0 bg-radial-vignette"></div>
     </div>
 
     <main class="relative z-10 text-center px-6 max-w-4xl mx-auto">
-      <div class="inline-block mb-4 px-4 py-1.5 border border-cyan-500/30 rounded-full bg-cyan-500/5 backdrop-blur-md">
-        <span class="text-cyan-400 text-xs font-bold tracking-[0.2em] uppercase">Intelligence in Motion</span>
-      </div>
-
-      <h1 class="text-7xl md:text-9xl font-extrabold tracking-tighter mb-6 bg-gradient-to-b from-white via-white to-slate-500 bg-clip-text text-transparent">
+      <h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter mb-6 bg-gradient-to-b from-white to-slate-500 bg-clip-text text-transparent">
         KANON
       </h1>
       
-      <p class="text-xl md:text-3xl text-white font-light mb-6 tracking-tight">
-        AI-Assisted Care. <span class="text-cyan-400 font-semibold italic">Audit-Proof Results.</span>
+      <p class="text-xl md:text-2xl text-cyan-400 font-semibold mb-4 tracking-wide uppercase">
+        AI-Assisted Care. Audit-Proof Results.
       </p>
 
-      <p class="max-w-2xl mx-auto text-slate-400 text-lg mb-12 leading-relaxed font-light">
-        The modern EMR designed to eliminate administrative friction and secure your agency's future.
+      <p class="max-w-2xl mx-auto text-slate-400 text-lg mb-12 leading-relaxed">
+        Built for home health owners who demand audit safety and care teams who deserve a better workflow. 
+        A modern EMR designed to eliminate administrative friction and secure your agency's future.
       </p>
 
       <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-        <button id="open-modal" class="group relative px-12 py-5 bg-white text-black font-bold rounded-full overflow-hidden transition-all hover:scale-105 active:scale-95">
-          <span class="relative z-10">Request Early Access</span>
-          <div class="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover:opacity-10 transition-opacity"></div>
+        <button id="open-modal" class="px-10 py-4 bg-white text-black font-bold rounded-full hover:scale-105 transition-all shadow-lg shadow-white/10 cursor-pointer">
+          Request Early Access
         </button>
         
-        <div class="px-6 py-3 border border-slate-800 rounded-full text-slate-400 text-sm flex items-center gap-3 bg-slate-900/80 backdrop-blur-xl">
-          <span class="flex h-2 w-2 rounded-full bg-cyan-500 animate-pulse shadow-[0_0_10px_#06b6d4]"></span>
-          Alpha 1.0 Live
+        <div class="px-6 py-3 border border-slate-800 rounded-full text-slate-400 text-sm flex items-center gap-3 bg-slate-900/50">
+          <span class="flex h-2 w-2 rounded-full bg-cyan-500 animate-pulse"></span>
+          Now in Alpha
         </div>
       </div>
     </main>
 
-    <footer class="absolute bottom-10 text-slate-500 text-[10px] tracking-[0.3em] uppercase z-10 opacity-50">
-      &copy; 2026 Kanon Health • Encryption-Standard AES-256
+    <footer class="absolute bottom-10 text-slate-600 text-xs tracking-widest uppercase z-10">
+      &copy; 2026 Kanon Health • Privacy-First Analytics Enabled
     </footer>
   </section>
 
-  <div id="modal-overlay" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/95 backdrop-blur-xl p-4">
-    <div class="bg-slate-900 border border-white/10 w-full max-w-md p-10 rounded-[2.5rem] shadow-2xl relative">
-      <button id="close-modal" class="absolute top-6 right-6 text-slate-500 hover:text-white text-3xl transition-colors">&times;</button>
+  <div id="modal-overlay" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/80 backdrop-blur-sm p-4">
+    <div class="bg-slate-900 border border-slate-800 w-full max-w-md p-8 rounded-3xl shadow-2xl relative overflow-hidden">
+      <button id="close-modal" class="absolute top-4 right-4 text-slate-500 hover:text-white text-2xl px-2">&times;</button>
       
       <div id="form-content">
-        <h2 class="text-3xl font-bold mb-3 text-white tracking-tight">Get Started.</h2>
-        <p class="text-slate-400 mb-8 text-sm leading-relaxed">Join the inner circle of agencies redefining care with Kanon.</p>
-        <form id="waitlist-form" class="space-y-4">
-          <input type="text" name="name" required placeholder="Full Name" class="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-white focus:outline-none focus:border-cyan-500 transition-all">
-          <input type="email" name="email" required placeholder="Email Address" class="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-white focus:outline-none focus:border-cyan-500 transition-all">
-          <input type="text" name="role" required placeholder="Your Role" class="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-white focus:outline-none focus:border-cyan-500 transition-all">
-          <input type="text" name="company" required placeholder="Agency Name" class="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-white focus:outline-none focus:border-cyan-500 transition-all">
-          <button type="submit" id="submit-btn" class="w-full py-5 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-2xl transition-all">
+        <h2 class="text-2xl font-bold mb-2 text-white">Join the Waitlist</h2>
+        <p class="text-slate-400 mb-6 text-sm">Be the first to see how Kanon streamlines your workflow.</p>
+        <form id="waitlist-form" class="space-y-4 text-left">
+          <input type="text" name="name" required placeholder="Full Name" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-500">
+          <input type="email" name="email" required placeholder="Email Address" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-500">
+          <input type="text" name="role" required placeholder="Role (e.g. CEO)" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-500">
+          <input type="text" name="company" required placeholder="Agency Name" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-500">
+          <button type="submit" id="submit-btn" class="w-full py-4 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-xl transition-all">
             Secure Early Access
           </button>
         </form>
       </div>
 
-      <div id="success-content" class="hidden text-center py-10">
-        <div class="w-24 h-24 bg-cyan-500/20 text-cyan-400 rounded-full flex items-center justify-center mx-auto mb-8 shadow-[0_0_40px_rgba(6,182,212,0.2)]">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+      <div id="success-content" class="hidden text-center py-8">
+        <div class="w-20 h-20 bg-cyan-500/20 text-cyan-500 rounded-full flex items-center justify-center mx-auto mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h2 class="text-3xl font-bold mb-3 text-white">You're in.</h2>
-        <p class="text-slate-400 mb-10 text-sm">Welcome to the future of home health.</p>
-        <button id="success-close" class="w-full py-4 bg-white/10 hover:bg-white/20 text-white font-bold rounded-2xl transition-all">Close</button>
+        <h2 class="text-2xl font-bold mb-2 text-white">You're on the list!</h2>
+        <p class="text-slate-400 mb-8 text-sm">We'll be in touch shortly regarding your alpha access.</p>
+        <button id="success-close" class="w-full py-4 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl transition-all">Done</button>
       </div>
     </div>
   </div>
@@ -92,25 +87,17 @@ const metadata = {
   <style is:global>
     @keyframes mesh-1 {
       0% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(10%, 10%) scale(1.1); }
-      66% { transform: translate(-5%, 15%) scale(0.9); }
+      33% { transform: translate(5%, 5%) scale(1.05); }
       100% { transform: translate(0, 0) scale(1); }
     }
     @keyframes mesh-2 {
-      0% { transform: translate(0, 0) scale(1.1); }
-      33% { transform: translate(-15%, -10%) scale(0.9); }
-      66% { transform: translate(10%, -15%) scale(1.2); }
-      100% { transform: translate(0, 0) scale(1.1); }
-    }
-    @keyframes mesh-3 {
-      0% { transform: translate(0, 0); opacity: 0.1; }
-      50% { transform: translate(-20%, 20%); opacity: 0.2; }
-      100% { transform: translate(0, 0); opacity: 0.1; }
+      0% { transform: translate(0, 0) scale(1.05); }
+      33% { transform: translate(-5%, -5%) scale(0.95); }
+      100% { transform: translate(0, 0) scale(1.05); }
     }
     .animate-mesh-1 { animation: mesh-1 20s ease-in-out infinite; }
     .animate-mesh-2 { animation: mesh-2 25s ease-in-out infinite; }
-    .animate-mesh-3 { animation: mesh-3 30s ease-in-out infinite; }
-    .bg-radial-vignette { background: radial-gradient(circle at center, transparent 0%, #020617 80%); }
+    .bg-radial-vignette { background: radial-gradient(circle at center, transparent 0%, #020617 85%); }
   </style>
 
   <script is:inline src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -127,17 +114,15 @@ const metadata = {
     const successContent = document.getElementById('success-content');
     const successClose = document.getElementById('success-close');
 
-    // Mouse Tracking
     hero.addEventListener('mousemove', (e) => {
       const rect = hero.getBoundingClientRect();
-      const x = e.clientX - rect.left - 300;
-      const y = e.clientY - rect.top - 300;
+      const x = e.clientX - rect.left - 250;
+      const y = e.clientY - rect.top - 250;
       glow.style.transform = `translate3d(${x}px, ${y}px, 0)`;
       glow.style.opacity = '1';
     });
     hero.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
 
-    // Modal logic
     const toggleModal = (show) => {
       if (show) {
         overlay.classList.remove('hidden');
@@ -160,7 +145,8 @@ const metadata = {
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      submitBtn.innerText = 'Syncing...';
+      const originalText = submitBtn.innerText;
+      submitBtn.innerText = 'Sending...';
       submitBtn.disabled = true;
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
@@ -173,15 +159,15 @@ const metadata = {
         if (response.ok) {
           formContent.classList.add('hidden');
           successContent.classList.remove('hidden');
-          confetti({ particleCount: 200, spread: 80, origin: { y: 0.6 }, colors: ['#06b6d4', '#ffffff'] });
+          confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 }, colors: ['#06b6d4', '#ffffff'] });
         } else {
           alert('Submission failed.');
-          submitBtn.innerText = 'Secure Early Access';
+          submitBtn.innerText = originalText;
           submitBtn.disabled = false;
         }
       } catch {
         alert('Error.');
-        submitBtn.innerText = 'Secure Early Access';
+        submitBtn.innerText = originalText;
         submitBtn.disabled = false;
       }
     });
