@@ -15,24 +15,18 @@ const metadata = {
       <h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter mb-6 bg-gradient-to-b from-white to-slate-500 bg-clip-text text-transparent">
         KANON
       </h1>
-
       <p class="text-xl md:text-2xl text-cyan-400 font-semibold mb-4 tracking-wide uppercase">
         AI-Assisted Care. Audit-Proof Results.
       </p>
-
       <p class="max-w-2xl mx-auto text-slate-400 text-lg mb-12 leading-relaxed">
         Built for home health owners who demand audit safety and care teams who deserve a better workflow. 
         A modern EMR designed to eliminate administrative friction and secure your agency's future.
       </p>
 
       <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-        <button 
-          id="open-modal"
-          class="px-10 py-4 bg-white text-black font-bold rounded-full hover:scale-105 transition-all shadow-lg shadow-white/10 cursor-pointer"
-        >
+        <button id="open-modal" class="px-10 py-4 bg-white text-black font-bold rounded-full hover:scale-105 transition-all shadow-lg shadow-white/10 cursor-pointer">
           Request Early Access
         </button>
-        
         <div class="px-6 py-3 border border-slate-800 rounded-full text-slate-400 text-sm flex items-center gap-3 bg-slate-900/50">
           <span class="flex h-2 w-2 rounded-full bg-cyan-500 animate-pulse"></span>
           Now in Alpha
@@ -46,24 +40,41 @@ const metadata = {
   </section>
 
   <div id="modal-overlay" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/80 backdrop-blur-sm p-4">
-    <div class="bg-slate-900 border border-slate-800 w-full max-w-md p-8 rounded-3xl shadow-2xl relative">
+    <div class="bg-slate-900 border border-slate-800 w-full max-w-md p-8 rounded-3xl shadow-2xl relative overflow-hidden">
       <button id="close-modal" class="absolute top-4 right-4 text-slate-500 hover:text-white text-2xl px-2">&times;</button>
       
-      <h2 class="text-2xl font-bold mb-2 text-white">Join the Waitlist</h2>
-      <p class="text-slate-400 mb-6 text-sm">Be the first to see how Kanon streamlines your workflow.</p>
-      
-      <form id="waitlist-form" class="space-y-4 text-left">
-        <input type="text" name="name" required placeholder="Full Name" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-500">
-        <input type="email" name="email" required placeholder="Email Address" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-500">
-        <input type="text" name="role" required placeholder="Role (e.g. CEO)" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-500">
-        <input type="text" name="company" required placeholder="Agency Name" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-500">
+      <div id="form-content">
+        <h2 class="text-2xl font-bold mb-2 text-white">Join the Waitlist</h2>
+        <p class="text-slate-400 mb-6 text-sm">Be the first to see how Kanon streamlines your workflow.</p>
         
-        <button type="submit" id="submit-btn" class="w-full py-4 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-xl transition-all">
-          Secure Early Access
+        <form id="waitlist-form" class="space-y-4 text-left">
+          <input type="text" name="name" required placeholder="Full Name" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-500">
+          <input type="email" name="email" required placeholder="Email Address" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-500">
+          <input type="text" name="role" required placeholder="Role (e.g. CEO)" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-500">
+          <input type="text" name="company" required placeholder="Agency Name" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-500">
+          
+          <button type="submit" id="submit-btn" class="w-full py-4 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-xl transition-all">
+            Secure Early Access
+          </button>
+        </form>
+      </div>
+
+      <div id="success-content" class="hidden text-center py-8">
+        <div class="w-20 h-20 bg-cyan-500/20 text-cyan-500 rounded-full flex items-center justify-center mx-auto mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h2 class="text-2xl font-bold mb-2 text-white">You're on the list!</h2>
+        <p class="text-slate-400 mb-8 text-sm">We'll be in touch shortly regarding your alpha access.</p>
+        <button id="success-close" class="w-full py-4 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl transition-all">
+          Done
         </button>
-      </form>
+      </div>
     </div>
   </div>
+
+  <script is:inline src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
   <script is:inline>
     const openBtn = document.getElementById('open-modal');
@@ -71,28 +82,35 @@ const metadata = {
     const overlay = document.getElementById('modal-overlay');
     const form = document.getElementById('waitlist-form');
     const submitBtn = document.getElementById('submit-btn');
+    const formContent = document.getElementById('form-content');
+    const successContent = document.getElementById('success-content');
+    const successClose = document.getElementById('success-close');
 
-    // Toggle Modal
-    openBtn.addEventListener('click', () => { 
-      overlay.classList.remove('hidden'); 
-      overlay.classList.add('flex'); 
-    });
-    closeBtn.addEventListener('click', () => { 
-      overlay.classList.add('hidden'); 
-      overlay.classList.remove('flex'); 
-    });
-    overlay.addEventListener('click', (e) => { 
-      if (e.target === overlay) { 
-        overlay.classList.add('hidden'); 
-        overlay.classList.remove('flex'); 
-      } 
-    });
+    const toggleModal = (show) => {
+      if (show) {
+        overlay.classList.remove('hidden');
+        overlay.classList.add('flex');
+      } else {
+        overlay.classList.add('hidden');
+        overlay.classList.remove('flex');
+        setTimeout(() => {
+          formContent.classList.remove('hidden');
+          successContent.classList.add('hidden');
+          form.reset();
+        }, 300);
+      }
+    };
 
-    // Handle Form
+    openBtn.addEventListener('click', () => toggleModal(true));
+    closeBtn.addEventListener('click', () => toggleModal(false));
+    successClose.addEventListener('click', () => toggleModal(false));
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) toggleModal(false); });
+
+    // Handle Form Submission
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const originalText = submitBtn.innerText;
-      submitBtn.innerText = 'Sending...';
+      submitBtn.innerText = 'Verifying...';
       submitBtn.disabled = true;
 
       const formData = new FormData(form);
@@ -106,16 +124,25 @@ const metadata = {
         });
 
         if (response.ok) {
-          alert('Successfully joined the waitlist!');
-          form.reset();
-          overlay.classList.add('hidden');
-          overlay.classList.remove('flex');
+          formContent.classList.add('hidden');
+          successContent.classList.remove('hidden');
+
+          // Trigger Confetti Pop
+          confetti({
+            particleCount: 150,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ['#06b6d4', '#3b82f6', '#ffffff'], // Matches your Cyan/Blue/White theme
+            disableForReducedMotion: true
+          });
+
         } else {
           alert('Submission failed. Try again.');
+          submitBtn.innerText = originalText;
+          submitBtn.disabled = false;
         }
       } catch {
         alert('Network error. Check connection.');
-      } finally {
         submitBtn.innerText = originalText;
         submitBtn.disabled = false;
       }
