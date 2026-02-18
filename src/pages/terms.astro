@@ -1,0 +1,56 @@
+---
+import Layout from '~/layouts/Layout.astro';
+
+const metadata = {
+  title: 'Terms of Service | Kanon',
+};
+---
+
+<Layout metadata={metadata}>
+  <section class="px-6 py-24 max-w-3xl mx-auto text-slate-300">
+    <h1 class="text-4xl font-bold text-white mb-8">Terms of Service</h1>
+    <p class="mb-6 text-sm text-slate-500">Last Updated: February 2026</p>
+
+    <div class="prose prose-invert max-w-none">
+      <h2 class="text-xl font-bold text-white mt-10 mb-4 uppercase tracking-wider">1. Acceptance of Terms</h2>
+      <p class="mb-6">
+        By accessing Kanon or joining our early access waitlist, you agree to be bound by these Terms of Service. If you are using Kanon on behalf of a Home Health Agency, you represent that you have the authority to bind that entity to these terms.
+      </p>
+
+      <h2 class="text-xl font-bold text-white mt-10 mb-4 uppercase tracking-wider">2. Alpha/Beta Software Disclaimer</h2>
+      <p class="mb-6 italic text-cyan-400">
+        Kanon is currently in an Alpha/Early Access stage. The services are provided "AS IS" and "AS AVAILABLE." We do not guarantee that the software will be error-free or uninterrupted during this development phase.
+      </p>
+
+      <h2 class="text-xl font-bold text-white mt-10 mb-4 uppercase tracking-wider">3. No Clinical or Regulatory Advice</h2>
+      <p class="mb-6">
+        Kanon provides workflow and documentation assistance tools. We do not provide clinical advice, medical diagnoses, or legal counsel. The final responsibility for all patient care decisions, clinical documentation accuracy, and regulatory compliance rests solely with the user and the Agency.
+      </p>
+
+      <h2 class="text-xl font-bold text-white mt-10 mb-4 uppercase tracking-wider">4. Audit Disclaimer & Liability</h2>
+      <p class="mb-6">
+        While Kanon is designed to support "Audit-Ready" workflows, the use of our platform does not guarantee success in any audit. Kanon shall not be held liable for any recoupments, fines, or regulatory findings issued against an Agency using our software.
+      </p>
+
+      <h2 class="text-xl font-bold text-white mt-10 mb-4 uppercase tracking-wider">5. Proper Use</h2>
+      <p class="mb-6">
+        Users agree not to use Kanon for any fraudulent activities, including but not limited to, the creation of false clinical records or the intentional manipulation of visit data to circumvent regulatory requirements.
+      </p>
+
+      <h2 class="text-xl font-bold text-white mt-10 mb-4 uppercase tracking-wider">6. Contact</h2>
+      <p class="mb-6">
+        Questions regarding these terms should be directed to 
+        <a 
+            href="mailto:compliance&#64;kanoncare&#46;health?subject=Legal&#32;and/or&#32;Compliance&#32;Inquiry" 
+            class="text-cyan-500 hover:text-cyan-400 underline decoration-cyan-500/30 underline-offset-4 transition-colors"
+        >
+            compliance&#64;kanoncare&#46;health
+        </a>.
+      </p>
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-slate-800">
+      <a href="/" class="text-cyan-500 hover:text-cyan-400 font-medium">← Back to Home</a>
+    </div>
+  </section>
+</Layout>
